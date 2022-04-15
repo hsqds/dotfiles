@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/opt/homebrew/bin:$PATH
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 
 # Path to your oh-my-zsh installation.
@@ -71,12 +71,12 @@ ZSH_THEME="crunch"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git golang docker docker-compose dotenv)
+plugins=(git golang docker ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+#export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -94,6 +94,8 @@ EDITOR='nvim'
 export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 
+export PATH="$PATH:$HOME/flutter/bin"
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -105,6 +107,9 @@ export PATH="$PATH:$GOPATH/bin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+# go
+export GOPRIVATE=code.citik.ru
 
 # docker
 alias dcls="docker container ls --format \"table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}\""
@@ -120,4 +125,10 @@ alias gc="git commit"
 alias gl="git log"
 alias gln="git log --name-only"
 alias glp="git log -p"
+alias gbg="git branch | grep"
 
+export NODE_OPTIONS=--max-old-space-size=8192
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
